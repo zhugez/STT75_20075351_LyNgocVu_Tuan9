@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuần 9</title>
+    <style>
+        * {
+            margin: 0px auto;
+            padding: 0px;
+        }
+
+        .wrapper {
+            width: 789px;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <form>
+            <input type="text" name="" id="txtus" placeholder="User name">
+            <br>
+            <input type="password" name="" id="txtmk" placeholder="Password">
+            <br>
+            <input type="radio" name="gt" value="Nam"> Nam
+            <input type="radio" name="gt" value="Nữ"> Nữ
+            <br>
+            <input type="checkbox" name="" value="Trung Nguyen"> Trung Nguyen
+            <br>
+            <input type="checkbox" name="" value="MeKong"> MeKong
+            <br>
+            <input type="checkbox" name="" value="New Blue"> New Blue
+            <br>
+            <input type="checkbox" name="" value="Trà Sữa"> Trà Sữa
+            <br>
+            <input type="button" value="Nhập" onclick="Nhap()">
+            <br>
+        </form>
+        <script>
+            function Nhap() {
+                var tendn, mk;
+                tendn = document.getElementById("txtus").value;
+                mk = document.getElementById("txtmk").value;
+                var cafe = new Array();
+                var taphop = document.querySelectorAll('input[type="checkbox"]');
+                taphop.forEach(function (chk) {
+                    if (chk.checked) {
+                        cafe.push(chk.value);
+                    }
+                });
+                var gtinh;
+                var taphopgt = document.querySelectorAll('input[type="radio"]');
+                taphopgt.forEach(function (ra) {
+                    if (ra.checked) {
+                        gtinh = ra.value;
+                    }
+                });
+                var ww = window.open("info.html");
+                localStorage.setItem("us", tendn);
+                localStorage.setItem("pd", mk);
+                localStorage.setItem("cf", cafe);
+                localStorage.setItem("gt", gtinh);
+            }
+
+        </script>
+    </div>
+
+
+</body>
+
+</html>
